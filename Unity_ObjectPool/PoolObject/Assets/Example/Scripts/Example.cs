@@ -17,6 +17,10 @@ public class Example : MonoBehaviour
     void Start()
     {
         pool = new GameObjectPool(prefab, 10);
+        pool.OnRecycle += (GameObject content) =>
+        {
+            content.transform.position = Vector3.zero;
+        };
     }
 
     // Update is called once per frame
